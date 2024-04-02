@@ -22,7 +22,7 @@ app.use("/api/", authorRoutes, bookRoutes, genreRoutes);
 
 // Default Route
 app.get("/", (req, res) => {
-  res.send("Hello To Gaana API");
+  res.send("Hello To Book API");
 });
 
 // Server
