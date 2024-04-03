@@ -38,7 +38,7 @@ app.use("/api/", authorRoutes, bookRoutes, genreRoutes, adminRoutes);
 
 // Default Route
 app.get("/", (req, res) => {
-  res.send("Hello To Gaana API");
+  res.send("Welcome to Book API");
 });
 
 // Server
