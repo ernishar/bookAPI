@@ -15,7 +15,7 @@ const Search = () => {
 
     const handleSearch = async () => {
             const xhr = new XMLHttpRequest();
-            xhr.open('GET', `http://localhost:5000/search?q=${query}`, true);
+            xhr.open('GET', `localhost:5000/api/searchBooks?q=${query}`, true);
             xhr.onload = function () {
                 if (xhr.status === 200) {
                     console.log(xhr.responseText);

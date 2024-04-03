@@ -30,7 +30,7 @@ const Login = () => {
               
               // Usage example
               
-            const response = await axios.post('http://localhost:5000/login', { email, password });
+            const response = await axios.post('http://localhost:5000/api/login/admin', { email, password });
 
             // setCookie('jwt',response.data.token, );
 

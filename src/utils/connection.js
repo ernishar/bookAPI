@@ -1,6 +1,6 @@
 const Sequelize = require("sequelize");
 
-const sequelize = new Sequelize("library", "root", "", {
+const sequelize = new Sequelize("bookapi", "root", "", {
   host: "localhost",
   dialect: "mysql",
 });
@@ -8,7 +8,7 @@ const sequelize = new Sequelize("library", "root", "", {
 sequelize
   .authenticate()
   .then(() => {
-    console.log("Connected to Library database");
+    console.log("Database connected successfully");
   })
   .catch((error) => {
     console.error("Unable to connect to the database:", error);

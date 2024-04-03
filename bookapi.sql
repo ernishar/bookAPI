@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `library`
+-- Database: `bookapi`
 --
 
 -- --------------------------------------------------------
@@ -31,9 +31,9 @@ DROP TABLE IF EXISTS `author`;
 CREATE TABLE IF NOT EXISTS `author` (
   `author_id` smallint NOT NULL,
   `author_name` char(100) NOT NULL,
-  `author_bio` varchar(1000) CHARACTER SET utf8mb4 COLLATE	utf8mb4_general_ci NOT NULL,
+  `author_bio` varchar(1000) CHARACTER SET utf8mb4 COLLATE	utf8mb4_0900_ai_ci NOT NULL,
   PRIMARY KEY (`author_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `author`
@@ -59,7 +59,7 @@ CREATE TABLE IF NOT EXISTS `books` (
   `description` varchar(1000) NOT NULL,
   `published_year` smallint NOT NULL,
   PRIMARY KEY (`book_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=129 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=129 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `books`
@@ -81,7 +81,7 @@ CREATE TABLE IF NOT EXISTS `book_authors` (
   `book_id` smallint NOT NULL,
   `author_id` smallint NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=18 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=18 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `book_authors`
@@ -104,7 +104,7 @@ CREATE TABLE IF NOT EXISTS `book_genres` (
   `book_id` smallint NOT NULL,
   `genre_id` smallint NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `book_genres`
@@ -126,7 +126,7 @@ CREATE TABLE IF NOT EXISTS `genre` (
   `genre_id` tinyint NOT NULL AUTO_INCREMENT,
   `genre_name` char(200) NOT NULL,
   PRIMARY KEY (`genre_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `genre`

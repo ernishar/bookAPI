@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useNavigate } from 'react-router-dom';
+import Header from './Header';
 
 const AllBook = () => {
   const [books, setBooks] = useState([]);
@@ -35,7 +36,7 @@ const AllBook = () => {
 
   const handleDelete = (bookId) => {
     const xhr = new XMLHttpRequest();
-    xhr.open('DELETE', `http://localhost:5000/deleteBook/${bookId}`, true);
+    xhr.open('DELETE', `localhost:5000/api/deleteBook/${bookId}`, true);
     xhr.onload = function () {
       if (xhr.status === 200) {
         console.log('Book deleted successfully');
@@ -44,7 +45,7 @@ const AllBook = () => {
       }
     };
     xhr.onerror = function () {
-      console.error('Error deleting book. Network error');
+      window.alert('Error deleting book. Network error');
     };
     xhr.send();
   };
@@ -53,8 +54,8 @@ const AllBook = () => {
     const fetchBooks = async () => {
       try {
         const response = await axios.get(`http://localhost:5000/api/getBooks?page=${page}&pageSize=${pageSize}`);
-        setBooks(response.data.data);
-        console.log(response)
+        setBooks(response.data.books);
+        console.log(response.data.books)
       } catch (error) {
         console.error('Error fetching books:', error);
       }
@@ -64,9 +65,11 @@ const AllBook = () => {
   }, [page, pageSize]);
 
 
-
+console.log("books-->",books);
 
   return (
+    <>
+    <Header/>
     <div className="container mt-5">
       <h2>All Books</h2>
       <table className="table">
@@ -76,9 +79,8 @@ const AllBook = () => {
             <th>Title</th>
             <th>Description</th>
             <th>Published Year</th>
-            <th>Quantity Available</th>
             <th>Author Name</th>
-            <th>Genre ID</th>
+            <th>Genre Name</th>
             <th>Actions</th>
           </tr>
         </thead>
@@ -89,9 +91,8 @@ const AllBook = () => {
               <td>{book.title}</td>
               <td>{book.description}</td>
               <td>{book.published_year}</td>
-              <td>{book.quantity_available}</td>
               <td>{book.author_name}</td>
-              <td>{book.genre_id}</td>
+              <td>{book.genre_name}</td>
               <td>
                 <button className="btn btn-primary btn-sm mx-2" onClick={() => handleEdit(book.book_id)}>Edit</button>
                 <button className="btn btn-danger btn-sm mx-2" onClick={() => handleDelete(book.book_id)}>Delete</button>
@@ -107,6 +108,7 @@ const AllBook = () => {
       <span className="mx-2">Page {page}</span>
       <button className="btn btn-primary btn-sm mx-5" type="button" onClick={handleNextPage}>Next Page</button>
     </div>
+    </>
   );
 };
 

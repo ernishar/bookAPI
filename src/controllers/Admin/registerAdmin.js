@@ -33,7 +33,7 @@ const registerAdmin = async (req, res) => {
       { type: QueryTypes.INSERT }
     );
 
-    return res.status(200).json({ message: "success" });
+    return res.status(200).json({ message: "admin register successfully" });
   } catch (error) {
     return res.status(500).json({ message: error.message });
   }

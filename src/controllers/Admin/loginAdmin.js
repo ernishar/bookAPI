@@ -49,7 +49,10 @@ const loginAdmin = async (req, res) => {
               secure: false,
               sameSite: "none",
             })
-            .json({ message: "success" });
+            .json({ message: `${email} login Successfully`,
+            token: `${token}`
+            }
+            );
         }
       );
     }

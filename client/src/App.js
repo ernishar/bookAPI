@@ -6,16 +6,20 @@ import AddBook from './components/AddBook';
 import AllBook from './components/AllBook';
 import UpdateBook from './components/UpdateBook';
 
+
 function App() {
   return (
+    <>
+  
     <Routes>
-      <Route path="/login" element={<Login />} />
+      <Route path="/" element={<Login />} />
       <Route path="/search" element={<Search />} />
       <Route path="/addBook" element={<AddBook/>}/>
-      <Route path="/" element={<AllBook/>}/>
+      <Route path="/allBooks" element={<AllBook/>}/>
       <Route path="/updateBook" element={<UpdateBook/>}/>
 
     </Routes>
+    </>
   );
 }
 
