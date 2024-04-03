@@ -11,7 +11,7 @@ const deleteAuthor = async (req, res) => {
   try {
     // Checking if the author already exists
     const getAuther = await sequelize.query(
-      `SELECT * FROM author WHERE author_id = ${author_id}`,
+      `SELECT * FROM author WHERE author_id = ${id}`,
       { type: QueryTypes.SELECT }
     );
 
@@ -30,11 +30,11 @@ const deleteAuthor = async (req, res) => {
     }
 
     // Deleting author from the author table
-    await sequelize.query(`DELETE FROM author WHERE author_id = ${author_id}`, {
+    await sequelize.query(`DELETE FROM author WHERE auther_id = ${author_id}`, {
       type: QueryTypes.DELETE,
     });
 
-    return res.status(200).json({ message: "Author deleted successfully" });
+    return res.status(200).json({ message: "success" });
   } catch (error) {
     return res.status(500).json({ message: error.message });
   }

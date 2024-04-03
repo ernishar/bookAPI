@@ -27,7 +27,7 @@ const updateAuthor = async (req, res) => {
       { type: QueryTypes.UPDATE }
     );
 
-    return res.status(200).json({ message: "Author details updated" });
+    return res.status(200).json({ message: "success" });
   } catch (error) {
     return res.status(500).json({ message: error.message });
   }

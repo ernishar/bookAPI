@@ -27,7 +27,7 @@ const addAuthor = async (req, res) => {
       { type: QueryTypes.INSERT }
     );
 
-    return res.status(200).json({ message: "Author Added Successfully" });
+    return res.status(200).json({ message: "success" });
   } catch (error) {
     return res.status(500).json({ message: error.message });
   }
