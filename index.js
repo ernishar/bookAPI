@@ -7,6 +7,7 @@ const sequelize = require("./src/utils/connection");
 const authorRoutes = require("./src/routes/authorRoutes");
 const bookRoutes = require("./src/routes/bookRoutes");
 const genreRoutes = require("./src/routes/genreRoutes");
+const adminRoutes = require("./src/routes/adminRoutes");
 
 const app = express();
 // Configuring dotenv
@@ -18,11 +19,11 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors());
 
 // All Routes
-app.use("/api/", authorRoutes, bookRoutes, genreRoutes);
+app.use("/api/", authorRoutes, bookRoutes, genreRoutes, adminRoutes);
 
 // Default Route
 app.get("/", (req, res) => {
-  res.send("Hello To Book API");
+  res.send("Welcome to Book API");
 });
 
 // Server
