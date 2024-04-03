@@ -79,8 +79,7 @@ console.log("books-->",books);
             <th>Title</th>
             <th>Description</th>
             <th>Published Year</th>
-            <th>Author Name</th>
-            <th>Genre Name</th>
+           
             <th>Actions</th>
           </tr>
         </thead>
@@ -91,8 +90,7 @@ console.log("books-->",books);
               <td>{book.title}</td>
               <td>{book.description}</td>
               <td>{book.published_year}</td>
-              <td>{book.author_name}</td>
-              <td>{book.genre_name}</td>
+             
               <td>
                 <button className="btn btn-primary btn-sm mx-2" onClick={() => handleEdit(book.book_id)}>Edit</button>
                 <button className="btn btn-danger btn-sm mx-2" onClick={() => handleDelete(book.book_id)}>Delete</button>
