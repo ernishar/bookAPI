@@ -58,7 +58,7 @@ const Login = () => {
     <div className="sign-in__wrapper">
       <div className="sign-in__backdrop"></div>
       <Form className="shadow p-4 bg-white rounded" onSubmit={handleFormSubmit}>
-        <div className="h4 mb-2 text-center">Sign In</div>
+        <div className="h4 mb-2 text-center">Admin Login</div>
 
         <Form.Group className="mb-2" controlId="username">
           <Form.Label>Username</Form.Label>

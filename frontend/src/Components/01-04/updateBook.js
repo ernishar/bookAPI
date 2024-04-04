@@ -32,6 +32,7 @@ export default function UpdateBook({
     const xhr = new XMLHttpRequest();
     xhr.open("PATCH", `http://localhost:4000/api/updateBook`, true);
     xhr.setRequestHeader("Content-Type", "application/json");
+    xhr.withCredentials=true;
     xhr.send(JSON.stringify(postData));
     xhr.onload = function () {
       if (xhr.readyState === 4) {
@@ -41,7 +42,7 @@ export default function UpdateBook({
           if (json_obj.message === "success") {
             getBooks(currentPage);
             handleClose();
-            toast.success("Book Edited");
+            toast.success("Book updated Successfully");
           } else {
             toast.error("There is something wrong");
             console.error(json_obj.message);
@@ -74,7 +75,7 @@ export default function UpdateBook({
       >
         <Container>
           <Modal.Header>
-            <Modal.Title>Update Post</Modal.Title>
+            <Modal.Title>Update Book</Modal.Title>
           </Modal.Header>
 
           <form onSubmit={handleEdit}>

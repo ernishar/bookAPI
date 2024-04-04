@@ -27,7 +27,7 @@ const ListBooks = () => {
     const xhr = new XMLHttpRequest();
     xhr.open(
       "GET",
-      `http://localhost:4000/api/getBooks?page=${page}&pageSize=3`,
+      `http://localhost:4000/api/getBooks?page=${page}&pageSize=5`,
       true
     );
     xhr.withCredentials = true;
@@ -84,7 +84,7 @@ const ListBooks = () => {
   }
 
   return (
-    <div className="listBooks mt-5">
+    <div className="listBooks mt-3 container-sm">
       <h3>Books List</h3>
       <div className="main table-responsive">
         <table className="table table-striped">

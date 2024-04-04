@@ -51,7 +51,7 @@ const AddBook = () => {
               author_name: "",
               genre_name: "",
             });
-            toast.success("Book Added");
+            toast.success("Book Added Successfully");
             navigate("/listdata");
           } else {
             toast.error("There is something wrong");
@@ -69,9 +69,10 @@ const AddBook = () => {
   };
 
   return (
-    <div className="form">
+    <div  className="fluid form shadow p-4 bg-white rounded">
       <h3>Add Book</h3>
-      <form onSubmit={handleFormSubmit}>
+      <p>Please fill all the details given below</p>
+      <form className="p-4 bg-white rounded" onSubmit={handleFormSubmit}>
         <div className="mb-3">
           <label htmlFor="exampleFormControlInput1" className="form-label">
             Book id

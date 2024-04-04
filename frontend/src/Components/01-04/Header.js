@@ -41,8 +41,8 @@ const Header = () => {
     : `${defaultProfilePic}`;
 
   return (
-    <Navbar fixed="top" className="bg-body-tertiary">
-      <Container>
+    <Navbar fixed="top" className="container-sm" bg="primary" data-bs-theme="dark">
+      <Container fluid-sm>
         <Link to="/">
           <Button variant="Link">Book Store</Button>
         </Link>
@@ -55,7 +55,7 @@ const Header = () => {
                   <Button variant="primary">Add Book</Button>
                 </Link>
                 <Link to="/listBooks">
-                  <Button variant="secondary">Books</Button>
+                  <Button variant="primary">Books</Button>
                 </Link>
                 <Link to="/profile">
                   <Image
@@ -66,17 +66,17 @@ const Header = () => {
                     height="50"
                   />
                 </Link>
-                <Button onClick={handleLogout} variant="secondary">
+                <Button onClick={handleLogout} variant="danger">
                   Logout
                 </Button>
               </div>
             ) : (
               <div className="d-flex justify-content-center align-items-center gap-4">
                 <Link to="/register">
-                  <Button variant="secondary">Register</Button>
+                  <Button variant="light">Register</Button>
                 </Link>
                 <Link to="/login">
-                  <Button variant="primary">Login</Button>
+                  <Button variant="light">Login</Button>
                 </Link>
               </div>
             )}
