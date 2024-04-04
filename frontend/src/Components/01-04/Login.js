@@ -52,12 +52,17 @@ const Login = () => {
     xhr.onerror = function () {
       console.error(xhr.statusText);
     };
+   if(!password.trim() && !email.trim()){
+      toast.error("Please provide both email and password.")
+      return;
+    }
 
     if (!email.trim()) {
       toast.error("Please provide email.");
       return;
     }else if(!password.trim()){
       toast.error("Please provide password.")
+      return
     }
   };
 
@@ -75,7 +80,7 @@ const Login = () => {
             value={email}
             placeholder="Username"
             onChange={(e) => setEmail(e.target.value)}
-            required
+        required="true"
           />
         </Form.Group>
         <Form.Group className="mb-2" controlId="password">
@@ -86,7 +91,7 @@ const Login = () => {
             value={password}
             placeholder="Password"
             onChange={(e) => setPassword(e.target.value)}
-            required
+          required="true"
           />
          
         </Form.Group>

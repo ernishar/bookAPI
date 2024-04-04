@@ -16,7 +16,7 @@ function App() {
     <UserContextProvider>
       <Router>
         <Header />
-        <Toaster richColors position="top-right" />
+        <Toaster richColors position="bottom-right" />
         <Routes>
           <Route exact path="/" element={<Home />} />
           <Route path="/add" element={<AddBook />} />
