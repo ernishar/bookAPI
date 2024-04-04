@@ -8,7 +8,7 @@ const registerAdmin = async (req, res) => {
   // Check if the file is uploaded
   let profilePic = null;
   if (req.file) {
-    profilePic = req.file.path;
+    profilePic = req.file.filename;
   }
 
   if (!name || !email || !password) {

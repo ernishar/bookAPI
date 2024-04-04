@@ -6,7 +6,7 @@ const storage = multer.diskStorage({
   destination: "./public/profilePics",
   filename: function (req, file, cb) {
     const uniqueSuffix = crypto.randomBytes(8).toString("hex");
-    const fileName = path.basename(file.originalname);
+    const fileName = file.originalname;
     const filename = `${uniqueSuffix}-${fileName}`;
     cb(null, filename);
   },
@@ -25,7 +25,7 @@ function checkFileType(file, cb) {
   // Allowed filetypes
   const filetypes = /jpeg|jpg|png/;
   // Check the extension
-  const extname = filetypes.test(path.extname(file.originalname).toLowerCase());
+  const extname = filetypes.test((file.originalname).toLowerCase());
   // Check the MIME type
   const mimetype = filetypes.test(file.mimetype);
 

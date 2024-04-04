@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Form, Button } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
-import { toast } from "sonner";
+import { toast } from "sonner"
 
 const Login = () => {
   const navigate = useNavigate();
@@ -52,6 +52,13 @@ const Login = () => {
     xhr.onerror = function () {
       console.error(xhr.statusText);
     };
+
+    if (!email.trim()) {
+      toast.error("Please provide email.");
+      return;
+    }else if(!password.trim()){
+      toast.error("Please provide password.")
+    }
   };
 
   return (
@@ -62,6 +69,7 @@ const Login = () => {
 
         <Form.Group className="mb-2" controlId="username">
           <Form.Label>Username</Form.Label>
+      
           <Form.Control
             type="text"
             value={email}
@@ -72,6 +80,7 @@ const Login = () => {
         </Form.Group>
         <Form.Group className="mb-2" controlId="password">
           <Form.Label>Password</Form.Label>
+          
           <Form.Control
             type="password"
             value={password}
@@ -79,6 +88,7 @@ const Login = () => {
             onChange={(e) => setPassword(e.target.value)}
             required
           />
+         
         </Form.Group>
 
         {!loading ? (
