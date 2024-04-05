@@ -2,15 +2,25 @@ const { QueryTypes } = require("sequelize");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const sequelize = require("../../utils/connection");
+const emailValidator = require("email-validator")
 
 const loginAdmin = async (req, res) => {
   const { email, password } = req.body;
 
-  if (!email || !password) {
+  if (!email && !password) {
     return res.status(400).json({ message: "All fields are required" });
+  }else if(!email){
+    return res.status(400).json({ message: "Email is required" });
+  }
+  else if(!password){
+    return res.status(400).json({ message: "password is required" });
   }
 
   try {
+    if(!emailValidator.validate(email)){
+      return res.status(400).json({ message: "Email Invalid Please enter correct email" });
+    }
+
     // Checking if the admin already exists
     const getAdmin = await sequelize.query(
       `SELECT * FROM admin WHERE email = '${email}'`,

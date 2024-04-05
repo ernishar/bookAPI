@@ -17,6 +17,7 @@ const Login = () => {
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
+    checkInputs();
     setLoading(true);
     const xhr = new XMLHttpRequest();
     xhr.open("POST", `http://localhost:4000/api/login/admin`, true);
@@ -52,18 +53,56 @@ const Login = () => {
     xhr.onerror = function () {
       console.error(xhr.statusText);
     };
-   if(!password.trim() && !email.trim()){
-      toast.error("Please provide both email and password.")
-      return;
-    }
+ 
+    // const email = document.getElementById("email");
+    // const password = document.getElementById("password");
 
-    if (!email.trim()) {
-      toast.error("Please provide email.");
-      return;
-    }else if(!password.trim()){
-      toast.error("Please provide password.")
-      return
-    }
+
+
+    // function checkInputs() {
+    //   //Get the value the form field.
+     
+    //   // const emailValue = email.value.trim();
+    //   // const passwordValue = password.value.trim();
+ 
+    //   // if (emailValue === "") {
+    //   //   setErrorInput(email, "Email cannot be blank.");
+    //   // } else {
+    //   //   validateEmail(emailValue) && setSuccessInput(email);
+    //   // }
+
+
+    //   // if (passwordValue === "") {
+    //   //   setErrorInput(password, "Password connot be blank.");
+    //   // } else {
+    //   //   setSuccessInput(password) && validatePassword(passwordValue);
+    //   // }
+    // }
+
+    // function setErrorInput(input, errorMessage) {
+    //   const formControl = input.parentElement;
+    //   const small = formControl.querySelector("small");
+
+    //   small.innerText = errorMessage;
+    //   formControl.className = "form__control error";
+    // }
+
+    // function setSuccessInput(input) {
+    //   const formControl = input.parentElement;
+    //   formControl.className = "form__control success";
+    // }
+
+    // function validateEmail(email) {
+    //   let regular_expressions = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    //   return regular_expressions.test(String(email).toLocaleLowerCase());
+    // }
+
+    // function validatePassword(password) {
+    //   let regular_expressions = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/;
+    //   return regular_expressions.match(regular_expressions);
+    // }
+
+
   };
 
   return (
@@ -72,29 +111,34 @@ const Login = () => {
       <Form className="shadow p-4 bg-white rounded" onSubmit={handleFormSubmit}>
         <div className="h4 mb-2 text-center">Admin Login</div>
 
-        <Form.Group className="mb-2" controlId="username">
-          <Form.Label>Username</Form.Label>
-      
+        <Form.Group className="mb-2" controlId="email">
+          <Form.Label>Email</Form.Label>
+
           <Form.Control
-            type="text"
+            type="email"
             value={email}
-            placeholder="Username"
+            placeholder="example@gmail.com"
+            id="email"
             onChange={(e) => setEmail(e.target.value)}
-        required="true"
+
           />
         </Form.Group>
+        <small>Error message</small>
+
         <Form.Group className="mb-2" controlId="password">
           <Form.Label>Password</Form.Label>
-          
+
           <Form.Control
             type="password"
             value={password}
             placeholder="Password"
+            id="password"
             onChange={(e) => setPassword(e.target.value)}
-          required="true"
+
           />
-         
+
         </Form.Group>
+        <small>Error message</small>
 
         {!loading ? (
           <Button className="w-100" variant="primary" type="submit">

@@ -11,9 +11,16 @@ const registerAdmin = async (req, res) => {
     profilePic = req.file.filename;
   }
 
-  if (!name || !email || !password) {
-    return res.status(400).json({ message: "All fields are required" });
-  }
+  // if (!name && !email && !password) {
+  //   return res.status(400).json({ message: "All fields are required" });
+  // }else if(!name){
+  //   return res.status(400).json({ message: "Name is required" });
+  // }else if(!email){
+  //   return res.status(400).json({ message: "email is required" });
+  // }else if(!password){
+  //   return res.status(400).json({ message: "password is required" });
+  // }
+
 
   try {
     // Checking if the admin already exists
